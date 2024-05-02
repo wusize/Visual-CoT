@@ -17,7 +17,8 @@ if __name__ == '__main__':
 
     for data_sample in tqdm(data):
         src_file = os.path.join(args.src_path, data_sample['image'][0])
-        assert os.path.exists(src_file)
+        if not os.path.exists(src_file):
+            print(f'{src_file} does not exist!', flush=True)
         dst_file = os.path.join(args.dst_path, data_sample['image'][0])
         dst_root = os.path.dirname(dst_file)
         os.makedirs(dst_root, exist_ok=True)
