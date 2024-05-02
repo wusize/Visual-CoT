@@ -19,13 +19,6 @@ if __name__ == '__main__':
         src_file = os.path.join(args.src_path, data_sample['image'][0])
         assert os.path.exists(src_file)
         dst_file = os.path.join(args.dst_path, data_sample['image'][0])
+        dst_root = os.path.dirname(dst_file)
+        os.makedirs(dst_root, exist_ok=True)
         shutil.copyfile(src_file, dst_file)
-
-
-
-
-
-
-
-
-
